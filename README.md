@@ -4,13 +4,11 @@ This gem contains the culture and conventions that employees of Nueca should fol
 
 ## Installation
 
-This can be installed with a Git source reference. It is recommended to include this ina Gemfile rather than installing it as a gem.
+Add in your Gemfile:
 
 ```ruby
-gem 'nueca_rails_interfaces', git: 'git@gitlab.nweca.com:cloud-team/gems/nueca-rails-interfaces.git'
+gem 'nueca_rails_interfaces'
 ```
-
-Use SSH Keys for authentication for a seamless and secure experience.
 
 ## Usage
 
@@ -23,6 +21,10 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 ## Contributing
 
 Bug reports and pull requests are welcome on Nueca GitLab at https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces/-/blob/main/CODE_OF_CONDUCT.md).
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
