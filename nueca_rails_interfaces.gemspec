@@ -5,10 +5,10 @@ require_relative 'lib/nueca_rails_interfaces/version'
 Gem::Specification.new do |spec|
   spec.name = 'nueca_rails_interfaces'
   spec.version = NuecaRailsInterfaces::VERSION
-  spec.authors = ['Jenek']
-  spec.email = ['jenek@nueca.com.ph']
+  spec.authors = ['Tien']
+  spec.email = ['tieeeeen1994@gmail.com']
   spec.summary = 'Interfaces for known object entities in Rails Development at Nueca.'
-  spec.homepage = 'https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces'
+  spec.homepage = 'https://github.com/tieeeeen1994/nueca-rails-interfaces'
   spec.required_ruby_version = '>= 3.3.0'
 
   # Specify which files should be added to the gem when it is released.

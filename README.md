@@ -20,7 +20,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on Nueca GitLab at https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces/-/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on Nueca GitLab at https://github.com/tieeeeen1994/nueca-rails-interfaces. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/tieeeeen1994/nueca-rails-interfaces/-/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -28,4 +28,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Nueca Rails Interfaces project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces/-/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Nueca Rails Interfaces project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/tieeeeen1994/nueca-rails-interfaces/-/blob/main/CODE_OF_CONDUCT.md).
