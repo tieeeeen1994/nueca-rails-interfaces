@@ -9,7 +9,6 @@ Gem::Specification.new do |spec|
   spec.email = ['jenek@nueca.com.ph']
   spec.summary = 'Interfaces for known object entities in Rails Development at Nueca.'
   spec.homepage = 'https://gitlab.nweca.com/cloud-team/gems/nueca-rails-interfaces'
-  spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.3.0'
 
   # Specify which files should be added to the gem when it is released.
