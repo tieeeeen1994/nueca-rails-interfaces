@@ -11,7 +11,7 @@ module V2
 
         # Initializes the form in a class context with the options passed in.
         base.define_singleton_method(:check) do |*arguments|
-          instance = Nueca::RailsInterfaces::Util.process_class_arguments(self, *arguments)
+          instance = NuecaRailsInterfaces::Util.process_class_arguments(self, *arguments)
           instance.valid?
           instance
         end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Nueca::RailsInterfaces::Util do
+RSpec.describe NuecaRailsInterfaces::Util do
   describe '#self.process_class_arguments' do
     context 'when the argument is one and is not a Hash' do
       it 'correctly returns the instance' do

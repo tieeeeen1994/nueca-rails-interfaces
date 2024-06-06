@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nueca-rails_interfaces (0.1.0)
+    nueca_rails_interfaces (0.1.0)
       rails (~> 7)
       to_bool (~> 2.1)
 
@@ -249,14 +249,14 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.6.14)
+    zeitwerk (2.6.15)
 
 PLATFORMS
   ruby
   x86_64-darwin-20
 
 DEPENDENCIES
-  nueca-rails_interfaces!
+  nueca_rails_interfaces!
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.21)

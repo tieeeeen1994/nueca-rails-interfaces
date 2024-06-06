@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/nueca/rails_interfaces/version'
+require_relative 'lib/nueca_rails_interfaces/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'nueca-rails_interfaces'
-  spec.version = Nueca::RailsInterfaces::VERSION
+  spec.name = 'nueca_rails_interfaces'
+  spec.version = NuecaRailsInterfaces::VERSION
   spec.authors = ['Jenek']
   spec.email = ['jenek@nueca.com.ph']
   spec.summary = 'Interfaces for known object entities in Rails Development at Nueca.'

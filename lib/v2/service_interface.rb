@@ -12,7 +12,7 @@ module V2
         # Do not override this method. Instead, override the `action` method. Returns the data immediately.
         # @return [Object] Data of the service.
         base.define_singleton_method(:perform) do |*arguments|
-          instance = Nueca::RailsInterfaces::Util.process_class_arguments(self, *arguments)
+          instance = NuecaRailsInterfaces::Util.process_class_arguments(self, *arguments)
           instance.perform
         end
       end
