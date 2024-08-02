@@ -12,3 +12,6 @@ Layout/LineLength:
 
 RSpec/NestedGroups:
   Max: 5
+
+RSpec/VerifiedDoubles:
+  Enabled: false
