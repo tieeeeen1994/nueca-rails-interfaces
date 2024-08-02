@@ -62,6 +62,7 @@ RSpec.describe V1::DataSource::BaseInterface do
         end
       end
     end
+    let(:record) { record_class.new }
     let(:base) { base_data_source.new(record) }
 
     before do
