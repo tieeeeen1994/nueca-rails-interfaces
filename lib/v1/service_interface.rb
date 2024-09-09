@@ -13,6 +13,18 @@ module V1
   # All services will have a `data` method that will contain the resulting data that the service produced.
   # Developers will mainly override `action` method and `data method`.
   module ServiceInterface
+    def self.included(_)
+      Rails.logger.warn(
+        <<~MSG
+          #################################################
+          #              DEPRECATION WARNING              #
+          # V1::ServiceInterface will be deprecated soon. #
+          #   Please use V2::ServiceInterface instead.    #
+          #################################################
+        MSG
+      )
+    end
+
     # This is the main method of the service. This is the method that should be called to perform the service.
     # Do not override this method. Instead, override the `action` method.
     # @return [self] Instance of the service.

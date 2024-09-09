@@ -17,6 +17,15 @@ module V1
     # @return [void]
     def self.included(base)
       base.include(ActiveModel::Model)
+      Rails.logger.warn(
+        <<~MSG
+          ##############################################
+          #            DEPRECATION WARNING             #
+          # V1::FormInterface will be deprecated soon. #
+          #    Please use V2::FormInterface instead.   #
+          ##############################################
+        MSG
+      )
     end
 
     # Final attributes to be returned by the form after validation.
