@@ -17,7 +17,7 @@ module V1
     # @return [void]
     def self.included(base)
       base.include(ActiveModel::Model)
-      Rails.logger.warn(
+      Rails.logger&.warn(
         <<~MSG
           ##############################################
           #            DEPRECATION WARNING             #

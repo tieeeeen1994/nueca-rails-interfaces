@@ -14,7 +14,7 @@ module V1
   # Developers will mainly override `action` method and `data method`.
   module ServiceInterface
     def self.included(_)
-      Rails.logger.warn(
+      Rails.logger&.warn(
         <<~MSG
           #################################################
           #              DEPRECATION WARNING              #
