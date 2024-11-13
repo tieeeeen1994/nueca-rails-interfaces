@@ -12,3 +12,7 @@
 
 # Built gems
 *.gem
+.ruby-version
+
+# Other files
+.DS_Store
