@@ -81,7 +81,6 @@ module V1
     # Always updated alias of sorts.
     def apply_sorting!
       sorts
-      @collection = @collection.order(id: :asc) if @pagination_flag
     end
 
     # Paginates the collection based on query or settings.
@@ -89,7 +88,7 @@ module V1
       raise 'Invalid pagination settings.' unless correct_pagination_settings?
       return unless @pagination_flag
 
-      @collection = collection.limit(fetch_per_page_value).offset((fetch_page_value - 1) * fetch_per_page_value)
+      @collection = collection.paginate(page: fetch_page_value, per_page: fetch_per_page_value)
     end
 
     # Logic for fetching the page value from the query or settings.
