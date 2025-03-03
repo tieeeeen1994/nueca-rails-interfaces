@@ -127,7 +127,7 @@ RSpec.describe V1::ServiceInterface do
     end
 
     it 'does not have access to real warnings' do
-      expect { service_instance._warnings }.to raise_error(NoMethodError, /private method `_warnings' called/)
+      expect { service_instance._warnings }.to raise_error(NoMethodError, /private method '_warnings' called/)
     end
   end
 end
