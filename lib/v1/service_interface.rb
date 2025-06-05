@@ -14,15 +14,17 @@ module V1
   # Developers will mainly override `action` method and `data method`.
   module ServiceInterface
     def self.included(_)
-      Rails.logger&.warn(
-        <<~MSG
-          #################################################
-          #              DEPRECATION WARNING              #
-          # V1::ServiceInterface will be deprecated soon. #
-          #   Please use V2::ServiceInterface instead.    #
-          #################################################
-        MSG
-      )
+      raise NuecaRailsInterfaces::DeprecatedError
+
+      # Rails.logger&.warn(
+      #   <<~MSG
+      #     #################################################
+      #     #              DEPRECATION WARNING              #
+      #     # V1::ServiceInterface will be deprecated soon. #
+      #     #   Please use V2::ServiceInterface instead.    #
+      #     #################################################
+      #   MSG
+      # )
     end
 
     # This is the main method of the service. This is the method that should be called to perform the service.

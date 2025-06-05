@@ -1,133 +1,141 @@
 # frozen_string_literal: true
 
 RSpec.describe V1::ServiceInterface do
-  describe '#perform' do
-    context 'when the service is configured properly' do
-      let(:service) do
-        Class.new do
-          include V1::ServiceInterface
-          def action; end
-          def data; end
-        end
-      end
-      let(:service_instance) { service.new }
+  describe 'Module Inclusion' do
+    let(:klass) { Class.new { include V1::ServiceInterface } }
 
-      it 'performs properly' do
-        expect(service_instance.perform).to eq(service_instance)
-      end
-
-      it 'marks the service as performed' do
-        service_instance.perform
-        expect(service_instance).to be_performed
-      end
-    end
-
-    context 'when the service does not implement data' do
-      let(:service) do
-        Class.new do
-          include V1::ServiceInterface
-          def action; end
-        end
-      end
-
-      it 'raises a NotImplementedError' do
-        expect { service.new.data }.to raise_error(NotImplementedError, 'Requires implementation of data.')
-      end
-    end
-
-    context 'when the service does not implement action' do
-      let(:service) do
-        Class.new do
-          include V1::ServiceInterface
-          def data; end
-        end
-      end
-
-      it 'raises a NotImplementedError' do
-        expect { service.new.perform }.to raise_error(NotImplementedError, 'Requires implementation of action.')
-      end
+    it 'raises a DeprecatedError when included' do
+      expect { klass }.to raise_error(NuecaRailsInterfaces::DeprecatedError, 'This feature is deprecated.')
     end
   end
 
-  describe '#action' do
-    let(:service) do
-      Class.new do
-        include V1::ServiceInterface
+  # describe '#perform' do
+  #   context 'when the service is configured properly' do
+  #     let(:service) do
+  #       Class.new do
+  #         include V1::ServiceInterface
+  #         def action; end
+  #         def data; end
+  #       end
+  #     end
+  #     let(:service_instance) { service.new }
 
-        def initialize(number)
-          @number = number
-        end
+  #     it 'performs properly' do
+  #       expect(service_instance.perform).to eq(service_instance)
+  #     end
 
-        def action
-          @number += 1
-        end
+  #     it 'marks the service as performed' do
+  #       service_instance.perform
+  #       expect(service_instance).to be_performed
+  #     end
+  #   end
 
-        def data
-          @number
-        end
-      end
-    end
-    let(:service_instance) { service.new(11) }
+  #   context 'when the service does not implement data' do
+  #     let(:service) do
+  #       Class.new do
+  #         include V1::ServiceInterface
+  #         def action; end
+  #       end
+  #     end
 
-    before { service_instance.perform }
+  #     it 'raises a NotImplementedError' do
+  #       expect { service.new.data }.to raise_error(NotImplementedError, 'Requires implementation of data.')
+  #     end
+  #   end
 
-    it 'executes the action successfully' do
-      expect(service_instance.data).to eq(12)
-    end
-  end
+  #   context 'when the service does not implement action' do
+  #     let(:service) do
+  #       Class.new do
+  #         include V1::ServiceInterface
+  #         def data; end
+  #       end
+  #     end
 
-  describe '#data' do
-    let(:service) do
-      Class.new do
-        include V1::ServiceInterface
+  #     it 'raises a NotImplementedError' do
+  #       expect { service.new.perform }.to raise_error(NotImplementedError, 'Requires implementation of action.')
+  #     end
+  #   end
+  # end
 
-        def action; end
+  # describe '#action' do
+  #   let(:service) do
+  #     Class.new do
+  #       include V1::ServiceInterface
 
-        def data
-          { key: 'value' }
-        end
-      end
-    end
-    let(:service_instance) { service.new }
+  #       def initialize(number)
+  #         @number = number
+  #       end
 
-    it 'returns the data' do
-      expect(service_instance.data).to have_key(:key)
-    end
-  end
+  #       def action
+  #         @number += 1
+  #       end
 
-  describe '#warnings' do
-    let(:service) do
-      Class.new do
-        include V1::ServiceInterface
+  #       def data
+  #         @number
+  #       end
+  #     end
+  #   end
+  #   let(:service_instance) { service.new(11) }
 
-        def action
-          add_warning('Test Warning...')
-        end
+  #   before { service_instance.perform }
 
-        def data
-          { all_warnings: warnings }
-        end
-      end
-    end
-    let(:service_instance) { service.new }
+  #   it 'executes the action successfully' do
+  #     expect(service_instance.data).to eq(12)
+  #   end
+  # end
 
-    before { service_instance.perform }
+  # describe '#data' do
+  #   let(:service) do
+  #     Class.new do
+  #       include V1::ServiceInterface
 
-    it 'has warnings' do
-      expect(service_instance.warnings).not_to be_empty
-    end
+  #       def action; end
 
-    it 'flags existence of warnings' do
-      expect(service_instance.warnings?).to be(true)
-    end
+  #       def data
+  #         { key: 'value' }
+  #       end
+  #     end
+  #   end
+  #   let(:service_instance) { service.new }
 
-    it 'does not allow modification of warnings' do
-      add_warning = -> { service_instance.warnings << 'Another Warning...' }
-      expect { add_warning.call }.to raise_error(FrozenError, /can't modify frozen Array/)
-    end
+  #   it 'returns the data' do
+  #     expect(service_instance.data).to have_key(:key)
+  #   end
+  # end
 
-    it 'does not have access to real warnings' do
-      expect { service_instance._warnings }.to raise_error(NoMethodError, /private method '_warnings' called/)
-    end
-  end
+  # describe '#warnings' do
+  #   let(:service) do
+  #     Class.new do
+  #       include V1::ServiceInterface
+
+  #       def action
+  #         add_warning('Test Warning...')
+  #       end
+
+  #       def data
+  #         { all_warnings: warnings }
+  #       end
+  #     end
+  #   end
+  #   let(:service_instance) { service.new }
+
+  #   before { service_instance.perform }
+
+  #   it 'has warnings' do
+  #     expect(service_instance.warnings).not_to be_empty
+  #   end
+
+  #   it 'flags existence of warnings' do
+  #     expect(service_instance.warnings?).to be(true)
+  #   end
+
+  #   it 'does not allow modification of warnings' do
+  #     add_warning = -> { service_instance.warnings << 'Another Warning...' }
+  #     expect { add_warning.call }.to raise_error(FrozenError, /can't modify frozen Array/)
+  #   end
+
+  #   it 'does not have access to real warnings' do
+  #     expect { service_instance._warnings }.to raise_error(NoMethodError, /private method '_warnings' called/)
+  #   end
+  # end
 end

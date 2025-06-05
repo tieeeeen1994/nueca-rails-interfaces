@@ -15,17 +15,19 @@ module V1
     # Allows the form mixin to include ActiveModel::Model powers.
     # @param [self] base Instance of the base form that would include this module.
     # @return [void]
-    def self.included(base)
-      base.include(ActiveModel::Model)
-      Rails.logger&.warn(
-        <<~MSG
-          ##############################################
-          #            DEPRECATION WARNING             #
-          # V1::FormInterface will be deprecated soon. #
-          #    Please use V2::FormInterface instead.   #
-          ##############################################
-        MSG
-      )
+    def self.included(_base)
+      raise NuecaRailsInterfaces::DeprecatedError
+
+      # base.include(ActiveModel::Model)
+      # Rails.logger&.warn(
+      #   <<~MSG
+      #     ##############################################
+      #     #            DEPRECATION WARNING             #
+      #     # V1::FormInterface will be deprecated soon. #
+      #     #    Please use V2::FormInterface instead.   #
+      #     ##############################################
+      #   MSG
+      # )
     end
 
     # Final attributes to be returned by the form after validation.
