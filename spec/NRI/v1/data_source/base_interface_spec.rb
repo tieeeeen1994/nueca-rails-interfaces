@@ -3,12 +3,12 @@
 require 'active_model/railtie'
 
 # Write a test for V1::DataSource::BaseInterface in RSpec.
-RSpec.describe V1::DataSource::BaseInterface do
+RSpec.describe NRI::V1::DataSource::BaseInterface do
   describe '#new' do
     context 'when data source node is known' do
       let(:interfase) do
         Class.new do
-          extend V1::DataSource::BaseInterface
+          extend NRI::V1::DataSource::BaseInterface
         end
       end
       let(:record) { double }
@@ -28,7 +28,7 @@ RSpec.describe V1::DataSource::BaseInterface do
     context 'when data source node is not found' do
       let(:interfase) do
         Class.new do
-          extend V1::DataSource::BaseInterface
+          extend NRI::V1::DataSource::BaseInterface
         end
       end
       let(:record) { double }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NuecaRailsInterfaces
+module NRI
   module V1
     # Form Interface. Include this module to create a new form.
     # In this version, a form is defined as a data verifier, mainly coming from parameters

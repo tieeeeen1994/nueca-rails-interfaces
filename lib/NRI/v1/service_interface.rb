@@ -1,27 +1,36 @@
-  # frozen_string_literal: true
+# frozen_string_literal: true
 
-module NuecaRailsInterfaces
-  module V2
-    # V2 Service Interface is the same as V1 Service Interface, except it is more straightforward.
-    # When performing the service, it will immediately return the data
+module NRI
+  module V1
+    # Service Mixin Interface. Include from this module when creating a new service.
+    # In this version, a service is defined as an absolute reusable piece of code.
+    # They should not be related to views and presentation of data; they are instead processors.
+    # Because of this, errors encountered should be raised as exceptions naturally.
+    # Errors here are treated as bad data. Services are not responsible for handling bad data.
+    # Services assume all data passed is correct and valid. Services should no longer validate these data.
+    # Services can still store warnings; these warnings are sent to Sentry, although not yet implemented.
+    # All services will have a `perform` method that will call the `action` method. This is the invoker of the service.
+    # All services will have an `action` method that will contain the main logic of the service.
+    # All services will have a `data` method that will contain the resulting data that the service produced.
+    # Developers will mainly override `action` method and `data method`.
     module ServiceInterface
-      class << self
-        def included(base)
-          # This is the main method of the service in a class context.
-          # This is the method that should be called to perform the service statically.
-          # Use this instead if the service instance is not needed.
-          # Do not override this method. Instead, override the `action` method. Returns the data immediately.
-          # @return [Object] Data of the service.
-          base.define_singleton_method(:perform) do |*arguments|
-            instance = NuecaRailsInterfaces::Util.process_class_arguments(self, *arguments)
-            instance.perform
-          end
-        end
+      def self.included(_)
+        raise NuecaRailsInterfaces::DeprecatedError
+
+        # Rails.logger&.warn(
+        #   <<~MSG
+        #     #################################################
+        #     #              DEPRECATION WARNING              #
+        #     # V1::ServiceInterface will be deprecated soon. #
+        #     #   Please use V2::ServiceInterface instead.    #
+        #     #################################################
+        #   MSG
+        # )
       end
 
       # This is the main method of the service. This is the method that should be called to perform the service.
-      # Do not override this method. Instead, override the `action` method. Returns the data immediately.
-      # @return [Object] Data of the service.
+      # Do not override this method. Instead, override the `action` method.
+      # @return [self] Instance of the service.
       def perform
         unless performed?
           action
@@ -29,12 +38,11 @@ module NuecaRailsInterfaces
           process_warnings
         end
 
-        data
+        self
       end
 
       # Override this method and put the main logic of the service here.
       # @raise [NotImplementedError] If the method is not overridden.
-      # @return [void]
       def action
         raise NotImplementedError, 'Requires implementation of action.'
       end
@@ -43,7 +51,6 @@ module NuecaRailsInterfaces
       # If blank, then return an empty hash manually.
       # Reason being is for readability's sake in the services.
       # @raise [NotImplementedError] If the method is not overridden.
-      # @return [Object] Data of the service.
       def data
         raise NotImplementedError, 'Requires implementation of data.'
       end

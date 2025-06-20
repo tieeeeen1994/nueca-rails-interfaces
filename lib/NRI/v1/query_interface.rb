@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NuecaRailsInterfaces
+module NRI
   module V1
     # Query Mixin Interface. Include this module to a class that will be used as a query object.
     # Query objects are eaily identified as helpers for querying with filters and sorting with complex algorithms.

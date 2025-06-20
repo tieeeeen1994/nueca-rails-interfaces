@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module NuecaRailsInterfaces
+module NRI
   module V2
     # V2 Form Interface is the same as V1 Form Interface,
     # except forces an exception on the attributes method when intializing a form.
