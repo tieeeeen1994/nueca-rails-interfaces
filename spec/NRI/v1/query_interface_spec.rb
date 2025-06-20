@@ -2,13 +2,13 @@
 
 require 'active_support/all'
 
-RSpec.describe V1::QueryInterface do
+RSpec.describe NRI::V1::QueryInterface do
   describe 'Instance Methods' do
     describe '#call' do
       context 'when the query object is configured properly' do
         let(:query) do
           Class.new do
-            include V1::QueryInterface
+            include NRI::V1::QueryInterface
 
             private
 
