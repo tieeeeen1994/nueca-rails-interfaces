@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nueca_rails_interfaces (0.2.7)
+    nueca_rails_interfaces (1.0.0)
       rails (>= 7, < 9)
       to_bool (~> 2.1)
 
