@@ -14,6 +14,14 @@ gem 'nueca_rails_interfaces'
 
 Simply include the interfaces in classes and they will be enforced.
 
+```ruby
+class MyForm
+  include NuecaRailsInterfaces::V2::FormInterface
+
+  # ...
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

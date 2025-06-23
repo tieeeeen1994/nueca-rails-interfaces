@@ -2,9 +2,9 @@
 
 require 'active_model/railtie'
 
-RSpec.describe V1::FormInterface do
+RSpec.describe NuecaRailsInterfaces::V1::FormInterface do
   describe 'Module Inclusion' do
-    let(:klass) { Class.new { include V1::FormInterface } }
+    let(:klass) { Class.new { include NuecaRailsInterfaces::V1::FormInterface } }
 
     it 'raises a DeprecatedError when included' do
       expect { klass }.to raise_error(NuecaRailsInterfaces::DeprecatedError, 'This feature is deprecated.')

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe V2::ServiceInterface do
+RSpec.describe NuecaRailsInterfaces::V2::ServiceInterface do
   describe 'Instance Methods' do
     describe '#perform' do
       context 'when the service is configured properly' do
         let(:service) do
           Class.new do
-            include V2::ServiceInterface
+            include NuecaRailsInterfaces::V2::ServiceInterface
             def action; end
 
             def data
@@ -29,7 +29,7 @@ RSpec.describe V2::ServiceInterface do
       context 'when the service does not implement data' do
         let(:service) do
           Class.new do
-            include V2::ServiceInterface
+            include NuecaRailsInterfaces::V2::ServiceInterface
             def action; end
           end
         end
@@ -43,7 +43,7 @@ RSpec.describe V2::ServiceInterface do
       context 'when the service does not implement action' do
         let(:service) do
           Class.new do
-            include V2::ServiceInterface
+            include NuecaRailsInterfaces::V2::ServiceInterface
             def data; end
           end
         end
@@ -58,7 +58,7 @@ RSpec.describe V2::ServiceInterface do
     describe '#action' do
       let(:service) do
         Class.new do
-          include V2::ServiceInterface
+          include NuecaRailsInterfaces::V2::ServiceInterface
 
           def initialize(number)
             @number = number
@@ -89,7 +89,7 @@ RSpec.describe V2::ServiceInterface do
     describe '#data' do
       let(:service) do
         Class.new do
-          include V2::ServiceInterface
+          include NuecaRailsInterfaces::V2::ServiceInterface
 
           def action; end
 
@@ -108,7 +108,7 @@ RSpec.describe V2::ServiceInterface do
     describe '#warnings' do
       let(:service) do
         Class.new do
-          include V2::ServiceInterface
+          include NuecaRailsInterfaces::V2::ServiceInterface
 
           def action
             add_warning('Test Warning...')
@@ -146,7 +146,7 @@ RSpec.describe V2::ServiceInterface do
     describe '#perform' do
       let(:service) do
         Class.new do
-          include V2::ServiceInterface
+          include NuecaRailsInterfaces::V2::ServiceInterface
 
           def initialize(number)
             @number = number
