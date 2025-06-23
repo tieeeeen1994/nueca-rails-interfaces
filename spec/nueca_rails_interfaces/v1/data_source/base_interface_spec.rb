@@ -2,13 +2,13 @@
 
 require 'active_model/railtie'
 
-# Write a test for V1::DataSource::BaseInterface in RSpec.
-RSpec.describe V1::DataSource::BaseInterface do
+# Write a test for NuecaRailsInterfaces::V1::DataSource::BaseInterface in RSpec.
+RSpec.describe NuecaRailsInterfaces::V1::DataSource::BaseInterface do
   describe '#new' do
     context 'when data source node is known' do
       let(:interfase) do
         Class.new do
-          extend V1::DataSource::BaseInterface
+          extend NuecaRailsInterfaces::V1::DataSource::BaseInterface
         end
       end
       let(:record) { double }
@@ -28,7 +28,7 @@ RSpec.describe V1::DataSource::BaseInterface do
     context 'when data source node is not found' do
       let(:interfase) do
         Class.new do
-          extend V1::DataSource::BaseInterface
+          extend NuecaRailsInterfaces::V1::DataSource::BaseInterface
         end
       end
       let(:record) { double }
@@ -39,7 +39,7 @@ RSpec.describe V1::DataSource::BaseInterface do
       end
 
       it 'raises a DataSource::NotFound error' do
-        expect { interfase.new(record) }.to raise_error(V1::DataSource::NotFound)
+        expect { interfase.new(record) }.to raise_error(NuecaRailsInterfaces::V1::DataSource::NotFound)
       end
     end
   end
@@ -47,12 +47,12 @@ RSpec.describe V1::DataSource::BaseInterface do
   describe '#resolver_logic' do
     let(:base_data_source) do
       Class.new do
-        extend V1::DataSource::BaseInterface
+        extend NuecaRailsInterfaces::V1::DataSource::BaseInterface
       end
     end
     let(:node_data_source) do
       Class.new do
-        include V1::DataSource::NodeInterface
+        include NuecaRailsInterfaces::V1::DataSource::NodeInterface
       end
     end
     let(:record_class) do

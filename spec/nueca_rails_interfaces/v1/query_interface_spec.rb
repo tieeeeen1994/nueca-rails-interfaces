@@ -2,13 +2,13 @@
 
 require 'active_support/all'
 
-RSpec.describe V1::QueryInterface do
+RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
   describe 'Instance Methods' do
     describe '#call' do
       context 'when the query object is configured properly' do
         let(:query) do
           Class.new do
-            include V1::QueryInterface
+            include NuecaRailsInterfaces::V1::QueryInterface
 
             private
 
@@ -41,7 +41,7 @@ RSpec.describe V1::QueryInterface do
       # context 'when the query object does not implement sorts' do
       #   let(:query) do
       #     Class.new do
-      #       include V1::QueryInterface
+      #       include NuecaRailsInterfaces::V1::QueryInterface
 
       #       private
 
@@ -58,7 +58,7 @@ RSpec.describe V1::QueryInterface do
       # context 'when the query object does not implement filters' do
       #   let(:query) do
       #     Class.new do
-      #       include V1::QueryInterface
+      #       include NuecaRailsInterfaces::V1::QueryInterface
 
       #       private
 
@@ -75,7 +75,7 @@ RSpec.describe V1::QueryInterface do
       context 'when the query object does not correctly implement pagination settings' do
         let(:query) do
           Class.new do
-            include V1::QueryInterface
+            include NuecaRailsInterfaces::V1::QueryInterface
 
             private
 
@@ -101,7 +101,7 @@ RSpec.describe V1::QueryInterface do
     describe '#call' do
       let(:query) do
         Class.new do
-          include V1::QueryInterface
+          include NuecaRailsInterfaces::V1::QueryInterface
 
           private
 

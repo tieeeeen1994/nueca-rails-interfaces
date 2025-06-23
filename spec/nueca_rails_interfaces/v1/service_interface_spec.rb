@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe V1::ServiceInterface do
+RSpec.describe NuecaRailsInterfaces::V1::ServiceInterface do
   describe 'Module Inclusion' do
-    let(:klass) { Class.new { include V1::ServiceInterface } }
+    let(:klass) { Class.new { include NuecaRailsInterfaces::V1::ServiceInterface } }
 
     it 'raises a DeprecatedError when included' do
       expect { klass }.to raise_error(NuecaRailsInterfaces::DeprecatedError, 'This feature is deprecated.')

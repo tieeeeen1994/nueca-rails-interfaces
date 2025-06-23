@@ -2,11 +2,11 @@
 
 require 'active_model/railtie'
 
-# Write a test for V1::DataSource::BaseInterface in RSpec.
-RSpec.describe V1::DataSource::NodeInterface do
+# Write a test for NuecaRailsInterfaces::V1::DataSource::BaseInterface in RSpec.
+RSpec.describe NuecaRailsInterfaces::V1::DataSource::NodeInterface do
   describe '#initialize' do
     let(:record) { double }
-    let(:node_instance) { Class.new { include V1::DataSource::NodeInterface }.new(record) }
+    let(:node_instance) { Class.new { include NuecaRailsInterfaces::V1::DataSource::NodeInterface }.new(record) }
 
     it 'sets the record' do
       expect(node_instance.record).to eq(record)
@@ -17,7 +17,7 @@ RSpec.describe V1::DataSource::NodeInterface do
     let(:record) { double(first_name: 'Nico') }
     let(:node) do
       Class.new do
-        include V1::DataSource::NodeInterface
+        include NuecaRailsInterfaces::V1::DataSource::NodeInterface
 
         def name
           "Toxic #{record.first_name}"
@@ -34,7 +34,7 @@ RSpec.describe V1::DataSource::NodeInterface do
     let(:record) { double(first_name: 'Nico') }
     let(:node) do
       Class.new do
-        include V1::DataSource::NodeInterface
+        include NuecaRailsInterfaces::V1::DataSource::NodeInterface
       end
     end
 
@@ -47,7 +47,7 @@ RSpec.describe V1::DataSource::NodeInterface do
     let(:record) { double }
     let(:node) do
       Class.new do
-        include V1::DataSource::NodeInterface
+        include NuecaRailsInterfaces::V1::DataSource::NodeInterface
       end
     end
 

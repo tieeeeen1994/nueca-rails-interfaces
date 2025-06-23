@@ -19,4 +19,4 @@ end
 require_relative 'nueca_rails_interfaces/util'
 
 # Require all interfaces.
-Dir["#{__dir__}/v*/**/*_interface.rb"].each { |file| require_relative file }
+Dir["#{__dir__}/nueca_rails_interfaces/v*/**/*_interface.rb"].each { |file| require_relative file }

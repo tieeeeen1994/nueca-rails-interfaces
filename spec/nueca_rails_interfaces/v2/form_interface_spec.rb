@@ -2,13 +2,13 @@
 
 require 'active_model/railtie'
 
-RSpec.describe V2::FormInterface do
+RSpec.describe NuecaRailsInterfaces::V2::FormInterface do
   describe 'Instance Methods' do
     describe '#attributes' do
       context 'when the form is configured properly' do
         let(:form) do
           Class.new do
-            include V2::FormInterface
+            include NuecaRailsInterfaces::V2::FormInterface
             def attributes
               { name: 'John Doe' }
             end
@@ -27,7 +27,7 @@ RSpec.describe V2::FormInterface do
       context 'when the form does not implement attributes' do
         let(:form) do
           Class.new do
-            include V2::FormInterface
+            include NuecaRailsInterfaces::V2::FormInterface
           end
         end
 
@@ -43,7 +43,7 @@ RSpec.describe V2::FormInterface do
       context 'when the form is configured properly' do
         let(:form) do
           Class.new do
-            include V2::FormInterface
+            include NuecaRailsInterfaces::V2::FormInterface
             def attributes
               { name: 'John Doe' }
             end
@@ -58,7 +58,7 @@ RSpec.describe V2::FormInterface do
       context 'when the form does not implement attributes' do
         let(:form) do
           Class.new do
-            include V2::FormInterface
+            include NuecaRailsInterfaces::V2::FormInterface
           end
         end
 
