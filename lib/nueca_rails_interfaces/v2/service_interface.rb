@@ -7,12 +7,14 @@ module NuecaRailsInterfaces
     module ServiceInterface
       class << self
         def included(base)
+          raise NuecaRailsInterfaces::DeprecatedError
+
           # This is the main method of the service in a class context.
           # This is the method that should be called to perform the service statically.
           # Use this instead if the service instance is not needed.
           # Do not override this method. Instead, override the `action` method. Returns the data immediately.
           # @return [Object] Data of the service.
-          base.define_singleton_method(:perform) do |*arguments|
+          base.define_singleton_method(:perform) do |*arguments| # rubocop:disable Lint/UnreachableCode
             instance = NuecaRailsInterfaces::Util.process_class_arguments(self, *arguments)
             instance.perform
           end
