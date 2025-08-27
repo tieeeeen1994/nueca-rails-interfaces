@@ -9,6 +9,7 @@ RSpec.describe NuecaRailsInterfaces::V2::FormInterface do
         let(:form) do
           Class.new do
             include NuecaRailsInterfaces::V2::FormInterface
+
             def attributes
               { name: 'John Doe' }
             end
@@ -44,6 +45,7 @@ RSpec.describe NuecaRailsInterfaces::V2::FormInterface do
         let(:form) do
           Class.new do
             include NuecaRailsInterfaces::V2::FormInterface
+
             def attributes
               { name: 'John Doe' }
             end

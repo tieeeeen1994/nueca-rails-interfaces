@@ -7,6 +7,7 @@ RSpec.describe NuecaRailsInterfaces::V2::ServiceInterface do
         let(:service) do
           Class.new do
             include NuecaRailsInterfaces::V2::ServiceInterface
+
             def action; end
 
             def data
@@ -30,6 +31,7 @@ RSpec.describe NuecaRailsInterfaces::V2::ServiceInterface do
         let(:service) do
           Class.new do
             include NuecaRailsInterfaces::V2::ServiceInterface
+
             def action; end
           end
         end
@@ -44,6 +46,7 @@ RSpec.describe NuecaRailsInterfaces::V2::ServiceInterface do
         let(:service) do
           Class.new do
             include NuecaRailsInterfaces::V2::ServiceInterface
+
             def data; end
           end
         end

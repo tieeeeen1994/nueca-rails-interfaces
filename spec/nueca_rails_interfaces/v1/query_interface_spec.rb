@@ -33,7 +33,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
 
         context 'when query exists' do
           it 'queries properly' do
-            expect(query.new({ a: true }, collection).call).to eq([:a])
+            expect(query.new({ a: 'true' }, collection).call).to eq([:a])
           end
         end
       end
