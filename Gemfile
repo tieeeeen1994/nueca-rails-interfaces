@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in nueca-rails_interfaces.gemspec
 gemspec
 
-gem 'rake', '~> 13.0'
+gem 'rake'
 gem 'rspec', '~> 3.0'
-gem 'rubocop', '~> 1.21'
-gem 'rubocop-rails', '~> 2.25'
-gem 'rubocop-rake', '~> 0.6'
-gem 'rubocop-rspec', '~> 2.29'
-gem 'ruby-lsp-rspec', '~> 0.1', require: false
+gem 'rubocop'
+gem 'rubocop-rails'
+gem 'rubocop-rake'
+gem 'rubocop-rspec'
+gem 'ruby-lsp-rspec', require: false
