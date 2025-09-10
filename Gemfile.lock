@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nueca_rails_interfaces (1.0.0)
+    nueca_rails_interfaces (1.1.1)
       rails (>= 7, < 9)
       to_bool (~> 2.1)
 
@@ -84,7 +84,6 @@ GEM
     benchmark (0.4.1)
     bigdecimal (3.2.2)
     builder (3.3.0)
-    byebug (12.0.0)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.3)
     crass (1.0.6)
@@ -261,7 +260,6 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  byebug
   nueca_rails_interfaces!
   rake
   rspec (~> 3.0)
