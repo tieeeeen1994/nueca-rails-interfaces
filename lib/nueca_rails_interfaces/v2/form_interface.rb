@@ -20,10 +20,8 @@ module NuecaRailsInterfaces
       end
 
       # Initializes the form with the options passed in.
-      # It also calls the attributes method to ensure it is implemented.
       def initialize(options = {})
         super(**options)
-        attributes
       end
 
       # Final attributes to be returned by the form after validation.
