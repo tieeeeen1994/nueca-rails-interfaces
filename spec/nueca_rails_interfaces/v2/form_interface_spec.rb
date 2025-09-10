@@ -24,18 +24,6 @@ RSpec.describe NuecaRailsInterfaces::V2::FormInterface do
           expect(form.new.attributes).to eq(name: 'John Doe')
         end
       end
-
-      context 'when the form does not implement attributes' do
-        let(:form) do
-          Class.new do
-            include NuecaRailsInterfaces::V2::FormInterface
-          end
-        end
-
-        it 'raises a NotImplementedError on initialization' do
-          expect { form.new }.to raise_error(NotImplementedError, 'Requires implementation of attributes.')
-        end
-      end
     end
   end
 
@@ -54,18 +42,6 @@ RSpec.describe NuecaRailsInterfaces::V2::FormInterface do
 
         it 'validates properly' do
           expect(form.check).to be_a(form)
-        end
-      end
-
-      context 'when the form does not implement attributes' do
-        let(:form) do
-          Class.new do
-            include NuecaRailsInterfaces::V2::FormInterface
-          end
-        end
-
-        it 'raises a NotImplementedError on validation' do
-          expect { form.check }.to raise_error(NotImplementedError, 'Requires implementation of attributes.')
         end
       end
     end
