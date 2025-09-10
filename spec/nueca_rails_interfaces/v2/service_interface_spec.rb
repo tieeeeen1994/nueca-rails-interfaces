@@ -61,7 +61,9 @@ RSpec.describe NuecaRailsInterfaces::V2::ServiceInterface do
   #       let(:service_instance) { service.new }
 
   #       it 'raises a NotImplementedError' do
-  #         expect { service_instance.perform }.to raise_error(NotImplementedError, 'Requires implementation of action.')
+  #         expect { service_instance.perform }.to(
+  #           raise_error(NotImplementedError, 'Requires implementation of action.'
+  #         )
   #       end
   #     end
   #   end
