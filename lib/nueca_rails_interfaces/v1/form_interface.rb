@@ -16,7 +16,7 @@ module NuecaRailsInterfaces
       # Allows the form mixin to include ActiveModel::Model powers.
       # @param [self] base Instance of the base form that would include this module.
       # @return [void]
-      def self.included(_base)
+      def self.included(base)
         base.include(ActiveModel::Model)
       end
 
