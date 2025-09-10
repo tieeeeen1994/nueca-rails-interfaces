@@ -3,7 +3,6 @@
 module NuecaRailsInterfaces
   module V2
     # V2 Form Interface is the same as V1 Form Interface,
-    # except forces an exception on the attributes method when intializing a form.
     module FormInterface
       class << self
         # Allows the form mixin to include ActiveModel::Model powers.
