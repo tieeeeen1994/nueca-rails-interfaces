@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-raise 'Rails not found' unless defined?(Rails)
+raise 'Rails not found' unless defined?(Rails) # rubocop:disable Style/ImplicitRuntimeError
 
 require 'to_bool'
 

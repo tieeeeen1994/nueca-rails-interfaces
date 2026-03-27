@@ -7,8 +7,6 @@ gemspec
 
 gem 'rake'
 gem 'rspec', '~> 3.0'
-gem 'rubocop'
-gem 'rubocop-rails'
+gem 'rubocop-nueca'
 gem 'rubocop-rake'
-gem 'rubocop-rspec'
 gem 'ruby-lsp-rspec', require: false

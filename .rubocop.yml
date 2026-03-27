@@ -1,17 +1,9 @@
 plugins:
-  - rubocop-rails
+  - rubocop-nueca
   - rubocop-rake
-  - rubocop-rspec
 
-AllCops:
-  TargetRubyVersion: 3.3
-  NewCops: enable
+Style/ClassMethodsDefinitions:
+  Enabled: false
 
-Layout/LineLength:
-  Max: 120
-
-RSpec/NestedGroups:
-  Max: 5
-
-RSpec/VerifiedDoubles:
+Style/OptionHash:
   Enabled: false

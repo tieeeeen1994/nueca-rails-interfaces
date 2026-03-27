@@ -86,7 +86,7 @@ module NuecaRailsInterfaces
 
       # Paginates the collection based on query or settings.
       def apply_pagination!
-        raise 'Invalid pagination settings.' unless correct_pagination_settings?
+        raise 'Invalid pagination settings.' unless correct_pagination_settings? # rubocop:disable Style/ImplicitRuntimeError
         return unless @pagination_flag
 
         @collection = collection.paginate(page: fetch_page_value, per_page: fetch_per_page_value)

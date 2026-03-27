@@ -19,7 +19,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
             def sorts; end
           end
         end
-        let(:collection) { %i[a b c] }
+        let(:collection) { [:a, :b, :c] }
 
         before do
           collection.class.define_method(:paginate) { |*| self }
@@ -27,7 +27,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
 
         context 'when query is nil' do
           it 'queries properly' do
-            expect(query.new({}, collection).call).to eq(%i[a b c])
+            expect(query.new({}, collection).call).to eq([:a, :b, :c])
           end
         end
 
@@ -112,7 +112,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
           def sorts; end
         end
       end
-      let(:collection) { %i[a b c] }
+      let(:collection) { [:a, :b, :c] }
 
       before do
         collection.class.define_method(:paginate) { |*| self }
@@ -120,7 +120,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
 
       context 'when query is nil' do
         it 'queries properly' do
-          expect(query.call({}, collection)).to eq(%i[a b c])
+          expect(query.call({}, collection)).to eq([:a, :b, :c])
         end
       end
 
