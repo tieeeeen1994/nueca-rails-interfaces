@@ -202,7 +202,6 @@ RSpec.describe NuecaRailsInterfaces::V3::FormInterface do
     end
   end
 
-  # ---------------------------------------------------------------------------
   describe '.flatten_errors' do
     let(:flat_form_class) do
       Class.new do
@@ -228,7 +227,6 @@ RSpec.describe NuecaRailsInterfaces::V3::FormInterface do
     end
   end
 
-  # ---------------------------------------------------------------------------
   describe '.check' do
     it 'instantiates, validates, and returns the form instance' do
       form = form_class.check(payment: { amount: 1 })
