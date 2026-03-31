@@ -7,7 +7,7 @@ module NuecaRailsInterfaces
     #
     # Models managed by the form are declared explicitly with the `model` macro.
     # Their attributes arrive as a nested hash keyed by the model name, which is
-    # what `fields_for :school_year, f.object.school_year` produces in the view —
+    # what `fields_for :school_year, f.object.school_year` produces in the view;
     # e.g. `school_year: { name: "..." }`.  This maps directly to:
     # `params.expect(my_form: [{ school_year: [:name] }, :other_field])`
     #
@@ -80,7 +80,7 @@ module NuecaRailsInterfaces
 
         # Builds the model instance from the given attributes hash, assigning only
         # fields the model recognises.  Unknown fields are silently discarded.
-        # `attrs` may be a plain Hash or ActionController::Parameters — both are
+        # `attrs` may be a plain Hash or ActionController::Parameters; both are
         # normalised to a plain Hash before processing; field whitelisting via
         # Splits options into model instances and regular form attributes.
         # Hash-valued keys matching a declared model are built into model instances.
@@ -153,7 +153,7 @@ module NuecaRailsInterfaces
 
       # Returns a merged hash of model instances and regular form attributes.
       # Defined here (included, not prepended) so that a form class can override it
-      # by defining its own `attributes` method — the class-level definition is found
+      # by defining its own `attributes` method; the class-level definition is found
       # first in the MRO, falling back to this default when no override exists.
       def attributes
         result = {}
