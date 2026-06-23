@@ -22,6 +22,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
         let(:collection) { [:a, :b, :c] }
 
         before do
+          stub_const('WillPaginate', Module.new)
           collection.class.define_method(:paginate) { |*| self }
         end
 
@@ -115,6 +116,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
       let(:collection) { [:a, :b, :c] }
 
       before do
+        stub_const('WillPaginate', Module.new)
         collection.class.define_method(:paginate) { |*| self }
       end
 

@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+require_relative 'pagination/base_adapter'
+require_relative 'pagination/will_paginate_adapter'
+require_relative 'pagination/kaminari_adapter'
+require_relative 'pagination/pagy_adapter'
+
 module NuecaRailsInterfaces
   module V1
     # Query Mixin Interface. Include this module to a class that will be used as a query object.
@@ -89,7 +94,26 @@ module NuecaRailsInterfaces
         raise 'Invalid pagination settings.' unless correct_pagination_settings? # rubocop:disable Style/ImplicitRuntimeError
         return unless @pagination_flag
 
-        @collection = collection.paginate(page: fetch_page_value, per_page: fetch_per_page_value)
+        @collection = pagination_adapter.paginate(collection, fetch_page_value, fetch_per_page_value)
+      end
+
+      # Selects the appropriate pagination adapter based on loaded gems.
+      # Override this method if using custom pagination adapter.
+      # @return [NuecaRailsInterfaces::V1::Pagination::BaseAdapter] The pagination adapter.
+      def pagination_adapter
+        @pagination_adapter ||=
+          if defined?(::WillPaginate)
+            NuecaRailsInterfaces::V1::Pagination::WillPaginateAdapter
+          elsif defined?(::Kaminari)
+            NuecaRailsInterfaces::V1::Pagination::KaminariAdapter
+          elsif defined?(::Pagy)
+            NuecaRailsInterfaces::V1::Pagination::PagyAdapter
+          else
+            # rubocop:disable Style/ImplicitRuntimeError
+            raise 'No compatible pagination library detected (WillPaginate, Kaminari, or Pagy) ' \
+                  'and collection does not respond to :paginate.'
+            # rubocop:enable Style/ImplicitRuntimeError
+          end
       end
 
       # Logic for fetching the page value from the query or settings.
