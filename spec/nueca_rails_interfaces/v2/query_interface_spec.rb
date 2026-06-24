@@ -2,13 +2,13 @@
 
 require 'active_support/all'
 
-RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
+RSpec.describe NuecaRailsInterfaces::V2::QueryInterface do
   describe 'Instance Methods' do
     describe '#call' do
       context 'when the query object is configured properly' do
         let(:query) do
           Class.new do
-            include NuecaRailsInterfaces::V1::QueryInterface
+            include NuecaRailsInterfaces::V2::QueryInterface
 
             private
 
@@ -39,44 +39,10 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
         end
       end
 
-      # context 'when the query object does not implement sorts' do
-      #   let(:query) do
-      #     Class.new do
-      #       include NuecaRailsInterfaces::V1::QueryInterface
-
-      #       private
-
-      #       def filters; end
-      #     end
-      #   end
-      #   let(:query_instance) { query.new(nil, []) }
-
-      #   it 'raises a NotImplementedError' do
-      #     expect { query_instance.call }.to raise_error(NotImplementedError, 'Requires implementation of sorts.')
-      #   end
-      # end
-
-      # context 'when the query object does not implement filters' do
-      #   let(:query) do
-      #     Class.new do
-      #       include NuecaRailsInterfaces::V1::QueryInterface
-
-      #       private
-
-      #       def sorts; end
-      #     end
-      #   end
-      #   let(:query_instance) { query.new(nil, []) }
-
-      #   it 'raises a NotImplementedError' do
-      #     expect { query_instance.call }.to raise_error(NotImplementedError, 'Requires implementation of filters.')
-      #   end
-      # end
-
       context 'when the query object does not correctly implement pagination settings' do
         let(:query) do
           Class.new do
-            include NuecaRailsInterfaces::V1::QueryInterface
+            include NuecaRailsInterfaces::V2::QueryInterface
 
             private
 
@@ -102,7 +68,7 @@ RSpec.describe NuecaRailsInterfaces::V1::QueryInterface do
     describe '#call' do
       let(:query) do
         Class.new do
-          include NuecaRailsInterfaces::V1::QueryInterface
+          include NuecaRailsInterfaces::V2::QueryInterface
 
           private
 
